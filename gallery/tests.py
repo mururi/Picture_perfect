@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Location, Category, Image
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 class LocationTestClass(TestCase):
     '''
@@ -54,3 +55,32 @@ class CategoryTestClass(TestCase):
         self.new_category.save_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories) > 0)
+
+class ImageTestClass(TestCase):
+    '''
+    Test class to test the behavior of the Image model class
+    '''
+
+    def setUp(self):
+        '''
+        set up method to run before each test case
+        '''
+
+        # Creating a new location and saving it
+        self.new_location = Location(city = "Nairobi", country = "Kenya")
+        self.new_location.save()
+
+        # Creating a new category and saving it
+        self.new_category = Category(name = "Lifestyle")
+        self.new_category.save()
+
+        self.new_image = Image(name = 'test_image', description = "sample descritpion", location = self.new_location, category = self.new_category)
+
+        # self.new_image.image = SimpleUploadedFile(name='test_image.jpg', content=open(image_path, 'rb').read(), content_type='image/jpeg')
+
+    def test_instance(self):
+        '''
+        test_instance method to test if the new_image object is an instance of the Image model
+        '''
+
+        self.assertTrue(isinstance(self.new_image, Image))

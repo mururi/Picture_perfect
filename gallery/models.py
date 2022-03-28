@@ -28,6 +28,9 @@ class Image(models.Model):
     category = models.ForeignKey(Category, on_delete = models.CASCADE)
     date_posted = models.DateTimeField(auto_now_add = True)
 
+    def save_image(self):
+        self.save()
+
     def __str__(self):
         return self.name
 
