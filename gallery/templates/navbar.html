@@ -1,7 +1,23 @@
-<form action="{% url 'search_results' %}" role="search">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Enter Category to Search" name="category">
-    <button class="btn btn-outline-secondary" type="submit">Search</button>
+<nav class="navbar sticky-top navbar-light bg-light">
+  <div class="container-fluid">
+    <ul class="navbar-nav mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Explore</a>
+      </li>
+    </ul>
+  
+    <form action="{% url 'search_results' %}" role="search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Enter Category to Search" name="category">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </div>
+    </form>
   </div>
-</form>
+  
+</nav>
+
+
 

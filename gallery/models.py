@@ -1,4 +1,4 @@
-from unicodedata import category
+from unicodedata import category, name
 from django.db import models
 
 class Location(models.Model):
@@ -38,7 +38,7 @@ class Image(models.Model):
 
     @classmethod
     def search_image(cls, search_category):
-        images = cls.objects.filter(category = search_category)
+        images = cls.objects.filter(category__name__icontains = search_category)
         return images
 
     def __str__(self):
