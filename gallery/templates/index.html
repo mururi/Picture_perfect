@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="text-center">Welcome to Picture Perfect</h1>
+<h1 class="text-center">Picture Perfect</h1>
+
+<section>
+  <div class="container-fluid">
+    <div class="container-xxl">
+      <div class="row">
+        {% for image in images %}
+        <div class="row">
+          <img src="{{image.image.url}}" alt="{{image.description}}">
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
