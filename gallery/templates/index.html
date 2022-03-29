@@ -8,10 +8,14 @@
       <div class="row" data-masonry='{"percentPosition": true }'>
         {% for image in images %}
         <div class="item col-md-4 mb-4">
-          <a href="{{image.image.url}}" class="fancybox" data-fancybox = "gallery1">
+          <a href="{{image.image.url}}" data-fancybox = "Images" data-caption = "{{image.name}}">
             <img src="{{image.image.url}}" alt="{{image.description}}" class="img-fluid">
+            
           </a>
-          
+          <div class="details">
+            <i class="bi bi-clipboard" style="color: white;"></i>
+          </div>
+  
         </div>
         {% endfor %}
       </div>
