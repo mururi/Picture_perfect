@@ -1,5 +1,6 @@
 from unicodedata import category, name
 from django.db import models
+import pyperclip
 
 class Location(models.Model):
     city = models.CharField(max_length = 50)
@@ -40,6 +41,11 @@ class Image(models.Model):
     def search_image(cls, search_category):
         images = cls.objects.filter(category__name__icontains = search_category)
         return images
+
+    @classmethod
+    def copy_image_url(cls, id):
+        image = cls.objects.get(id = id)
+        pyperclip.copy(image.image.url)
 
     def __str__(self):
         return self.name
