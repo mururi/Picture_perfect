@@ -41,6 +41,18 @@ class Image(models.Model):
         cls.objects.filter(id = id).delete()
 
     @classmethod
+    def update_image(cls, id):
+        pass
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        '''
+        Method to get an Image by its ID
+        '''
+
+        return cls.objects.filter(id = id)[0]
+
+    @classmethod
     def get_all_images(cls):
         images = cls.objects.all()
         return images
@@ -48,6 +60,11 @@ class Image(models.Model):
     @classmethod
     def search_image(cls, search_category):
         images = cls.objects.filter(category__name__icontains = search_category)
+        return images
+
+    @classmethod
+    def filter_by_location(cls, location):
+        images = cls.objects.filter(category__location__icontains = location)
         return images
 
     @classmethod

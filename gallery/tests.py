@@ -74,7 +74,7 @@ class ImageTestClass(TestCase):
         self.new_category = Category(name = "Lifestyle")
         self.new_category.save()
 
-        self.new_image = Image(name = 'test_image', description = "sample descritpion", location = self.new_location, category = self.new_category)
+        self.new_image = Image(id = 1, name = 'test_image', description = "sample descritpion", location = self.new_location, category = self.new_category)
 
         # self.new_image.image = SimpleUploadedFile(name='test_image.jpg', content=open(image_path, 'rb').read(), content_type='image/jpeg')
 
@@ -84,6 +84,13 @@ class ImageTestClass(TestCase):
         '''
 
         self.assertTrue(isinstance(self.new_image, Image))
+
+    def test_get_image_by_id_method(self):
+        print(self.new_image)
+        print(self.new_image.id)
+        image = Image.get_image_by_id(self.new_image.id)
+        print(image)
+        self.assertEqual(image, self.new_image)
 
     def test_delete_method(self):
         Image.delete_image(self.new_image.id)
