@@ -5,7 +5,7 @@
 ## Description 
 This is Django photo gallery web app where users can view photos and search different categories and locations.
 
-![Photo Gallery Web App](app/static/img/this_Is_me.png)
+![Photo Gallery Web App](static/picture_perfect.png)
 
 ## How to Use
 ### Requirements
@@ -16,7 +16,7 @@ This is Django photo gallery web app where users can view photos and search diff
 Ensure that your device of choice has a browser installed.
 Click the link provided below to view the site.
 
-https://
+https://picture-perfect-app.herokuapp.com/
 
 ### Using the App
 The user can navigate the web app easily and be able to:
